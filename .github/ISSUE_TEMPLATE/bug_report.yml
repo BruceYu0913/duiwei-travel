@@ -1,0 +1,44 @@
+name: Bug 报告
+description: 记录可复现的问题，便于当天跟进和回归验证。
+title: "[Bug] "
+labels:
+  - bug
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: 问题描述
+      description: 实际发生了什么？
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+      placeholder: |
+        1. 打开……
+        2. 点击……
+        3. 出现……
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 预期结果
+    validations:
+      required: true
+  - type: dropdown
+    id: priority
+    attributes:
+      label: 优先级
+      options:
+        - P0 - 阻断
+        - P1 - 体验
+        - P2 - 细节
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: 环境与日志
+      description: 浏览器、分支、commit、错误信息或截图。
