@@ -24,6 +24,22 @@ class TestPageTest extends TestCase
             ->assertHasErrors(['name' => 'required']);
     }
 
+    public function test_livewire_page_route_is_available(): void
+    {
+        $this->get('/test-page')
+            ->assertOk()
+            ->assertSee('Livewire');
+    }
+
+    public function test_static_prototype_route_is_available(): void
+    {
+        $prototype = resource_path('prototypes/shifan-travel.html');
+
+        $this->get('/prototype')->assertOk();
+        $this->assertFileExists($prototype);
+        $this->assertStringContainsString('对味 · 找到同频旅伴', file_get_contents($prototype));
+    }
+
     public function test_livewire_form_submits_and_displays_the_result(): void
     {
         Livewire::test(TestPage::class)

@@ -45,7 +45,7 @@
 - [x] 保持 `main` 未被提交或推送
 - [x] 添加 PR 模板和 Bug Issue 模板
 - [x] PR 模板包含测试方法
-- [ ] 推送分支与创建 PR：等待仓库账号持有人配置 GitHub 身份并授权登录
+- [x] `feature/w0-setup` 已推送到远程仓库
 
 建议由账号持有人执行：
 
@@ -54,7 +54,7 @@ git config --global user.name "你的 GitHub 显示名"
 git config --global user.email "你的 GitHub 提交邮箱"
 ```
 
-完成代码复核后，再决定是否提交、推送并创建 PR；不要直接推送 `main`。
+完成代码复核后创建并合并 PR；不要直接推送 `main`。
 
 ## 验收结果
 
@@ -70,3 +70,4 @@ git config --global user.email "你的 GitHub 提交邮箱"
 2. 手册同时写了 pnpm 和 npm。本项目统一使用 pnpm，避免双锁文件。
 3. Redis 属于总技术栈，但不在 W0 安装清单内。本阶段 session、queue、cache 使用 MySQL，Redis 延后到需要缓存/队列时接入。
 4. Laravel 11 已停止安全维护；W0 按手册复现，进入正式开发前需确认升级计划。
+5. 初版 README 和启动脚本误用了原开发电脑的绝对路径及仓库外 `.runtime`。现已改为根据 `$PSScriptRoot` 定位仓库、从 PATH 发现开发工具，并由各电脑的 `.env` 决定 MySQL 连接。
